@@ -1,20 +1,36 @@
 'use strict';
 
-class View {
-  constructor(model, $target) {
-    this._model = model;
-    this._$target = $target;
+// Importing styles
+require('./View.css!');
+
+class Activities {
+  constructor (activities) {
+    this._activities = activities;
+  }
+
+  //11/ To keep the API consistent each class will have `render` method that returns DOM element.
+  render () {
+    const $activities = document.createElement('div');
+    $activities.className = 'activities';
+
+    for (let activity of this._activities) {
+      // We're creating Activity instance and call render to get the view
+      $activities.appendChild(new Activity(activity).render());
+    }
+
+    return $activities;
+  }
+}
+
+//4/ Class responsible for rendering single activity.
+class Activity {
+  constructor (activity) {
+    this._activity = activity;
   }
 
   render () {
-    const activities = this._model.getActivities();
-    for (let activity of activities) {
-      let $activity = this._renderActivity(activity);
-      this._$target.appendChild($activity);
-    }
-  }
+    let activity = this._activity;
 
-  _renderActivity (activity) {
     let $activity = document.createElement('div');
     $activity.className = 'activity';
 
@@ -40,7 +56,7 @@ class View {
     $button.addEventListener('click', () => {
       if (!activity.started) {
         activity.started = new Date().getTime();
-        this.replace($activity, this._renderActivity(activity));
+        this.rerender($activity);
         return;
       }
 
@@ -48,7 +64,7 @@ class View {
       activity.timeSpent += timeSpent;
       activity.started = false;
 
-      this.replace($activity, this._renderActivity(activity));
+      this.rerender($activity);
     });
 
     $activity.appendChild($img);
@@ -59,9 +75,17 @@ class View {
     return $activity;
   }
 
-  replace ($old, $new) {
-    $old.parentNode.replaceChild($new, $old);
+  rerender ($old) {
+    $old.parentNode.replaceChild(this.render(), $old);
   }
 }
 
-module.exports = View;
+//3/ Using ES6 feature - opposite of destructuring assignment
+module.exports = {
+  Activities, Activity
+};
+//4/ Above is equivalent to:
+module.exports = {
+  Activities: Activities,
+  Activity: Activity
+};
