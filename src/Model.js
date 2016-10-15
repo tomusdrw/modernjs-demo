@@ -1,12 +1,13 @@
 'use strict';
 
-//26/ Model definition
 const Model = {
   _activities: [
     {
       id: 3,
       alt: 'Bicycle',
       name: 'Cycling',
+      // This actiity will be started by default
+      started: new Date().getTime(),
       timeSpent: 120
     },
     {

@@ -1,15 +1,17 @@
 'use strict';
 
-//46/ View definition
 const View = {
 
   render (model, $target) {
     const activities = model.getActivities();
-    //4/ We have extracted single activity rendering to separate method
      for (let idx in activities) {
       let $activity = View._renderActivity(activities[idx]);
       $target.appendChild($activity);
     }
+  },
+
+  replace ($old, $new) {
+    $old.parentNode.replaceChild($new, $old);
   },
 
   _renderActivity (activity) {
@@ -29,14 +31,29 @@ const View = {
 
     let $time = document.createElement('p');
     $time.classList.add('activity__description');
-    $time.innerHTML = 'Time spent: <strong>' + activity.timeSpent + ' min</strong>';
+    $time.innerHTML = 'Time spent: <strong>' + activity.timeSpent.toFixed(1) + ' min</strong>';
 
     let $button = document.createElement('button');
     $button.classList.add('activity__button--paused');
-    $button.innerHTML = '&#9654; Start';
+    $button.innerHTML = activity.started ? '&#9646;&#9646 Pause' : '&#9654; Start';
+
     $button.addEventListener('click', function () {
-      alert('Starting tracking: ' + activity.name);
-      console.log(activity);
+      //7/ If activity is not yet tracked
+      if (!activity.started) {
+        // Record start time
+        activity.started = new Date().getTime();
+        // And replace old activity with new one
+        View.replace($activity, View._renderActivity(activity));
+        return;
+      }
+
+      //3/ Otherwise, calculate how much time was spent on this activity and accumulate
+      const timeSpent = (new Date().getTime() - activity.started) / 1000 / 60;
+      activity.timeSpent += timeSpent;
+      activity.started = false;
+
+      // Finally, re-render current activity
+      View.replace($activity, View._renderActivity(activity));
     });
 
     $activity.appendChild($img);
