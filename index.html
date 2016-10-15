@@ -4,21 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Activity Tracker</title>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="styles.css">
+    <!-- We got rid of stylesheet imports -->
   </head>
   <body>
     <h1>Your activities</h1>
     <div class="activities"></div>
 
-    <!-- 9/ System.js is a tool that will load our modules. -->
     <script src="/cdn/systemjs/0.19.9/dist/system.js"></script>
     <script>
       System.config({
         defaultJSExtensions: true,
-        transpiler: false
+        transpiler: false,
+        //3/ We need to use CSS plugin to handle CSS imports properly.
+        map: {
+          'css': '/cdn/systemjs/plugin-css/css-0.1.20.js',
+        }
       });
-      // We are only specifying the entry point
       System.import('src/index');
     </script>
   </body>

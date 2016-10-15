@@ -30,5 +30,4 @@ class Model {
   }
 }
 
-// Declare what stuff should be exposed from the module.
 module.exports = Model;
