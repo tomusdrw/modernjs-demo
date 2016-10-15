@@ -1,27 +1,22 @@
 'use strict';
 
-const View = {
+//5/ View is also a class, `model` and `$target` are assigned in constructor
+class View {
+  constructor(model, $target) {
+    this._model = model;
+    this._$target = $target;
+  }
 
-  render (model, $target) {
-    const activities = model.getActivities();
-
-    // 5. for-of loop
+  //7/ Replace all `View.*` invocations with `this.*`
+  render () {
+    const activities = this._model.getActivities();
     for (let activity of activities) {
-      let $activity = View._renderActivity(activity);
-      $target.appendChild($activity);
+      let $activity = this._renderActivity(activity);
+      this._$target.appendChild($activity);
     }
-  },
-
-  replace ($old, $new) {
-    $old.parentNode.replaceChild($new, $old);
-  },
+  }
 
   _renderActivity (activity) {
-    //3/ 4. Destructuring assignment
-    const { alt, name } = activity;
-    // const alt = activity.alt;
-    // const name = activity.name;
-
     let $activity = document.createElement('div');
     $activity.className = 'activity';
 
@@ -30,7 +25,6 @@ const View = {
     $img.width = 250;
     $img.height = 250;
     $img.alt = activity.alt;
-    // 1. Template Strings
     $img.src = `https://xplatform.org/ext/lorempixel/250/250/sports/${activity.id}/`;
 
     let $name = document.createElement('h3');
@@ -39,18 +33,17 @@ const View = {
 
     let $time = document.createElement('p');
     $time.classList.add('activity__description');
-    // 2. We can put any expression inside template strings
     $time.innerHTML = `Time spent: <strong> ${activity.timeSpent.toFixed(1)} min</strong>`;
 
     let $button = document.createElement('button');
     $button.classList.add('activity__button--paused');
     $button.innerHTML = activity.started ? '&#9646;&#9646; Pause' : '&#9654; Start';
 
-    // 3. Lambdas!
+    //6/ Thanks to lambas we can safely use `this`.
     $button.addEventListener('click', () => {
       if (!activity.started) {
         activity.started = new Date().getTime();
-        View.replace($activity, View._renderActivity(activity));
+        this.replace($activity, this._renderActivity(activity));
         return;
       }
 
@@ -58,7 +51,7 @@ const View = {
       activity.timeSpent += timeSpent;
       activity.started = false;
 
-      View.replace($activity, View._renderActivity(activity));
+      this.replace($activity, this._renderActivity(activity));
     });
 
     $activity.appendChild($img);
@@ -68,4 +61,8 @@ const View = {
 
     return $activity;
   }
-};
+
+  replace ($old, $new) {
+    $old.parentNode.replaceChild($new, $old);
+  }
+}
