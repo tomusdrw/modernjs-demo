@@ -1,29 +1,8 @@
 'use strict';
 
-// Importing styles
-require('./View.css!');
+require('./styles.css!');
 
-class Activities {
-  constructor (activities) {
-    this._activities = activities;
-  }
-
-  //11/ To keep the API consistent each class will have `render` method that returns DOM element.
-  render () {
-    const $activities = document.createElement('div');
-    $activities.className = 'activities';
-
-    for (let activity of this._activities) {
-      // We're creating Activity instance and call render to get the view
-      $activities.appendChild(new Activity(activity).render());
-    }
-
-    return $activities;
-  }
-}
-
-//4/ Class responsible for rendering single activity.
-class Activity {
+module.exports = class Activity {
   constructor (activity) {
     this._activity = activity;
   }
@@ -78,14 +57,4 @@ class Activity {
   rerender ($old) {
     $old.parentNode.replaceChild(this.render(), $old);
   }
-}
-
-//3/ Using ES6 feature - opposite of destructuring assignment
-module.exports = {
-  Activities, Activity
-};
-//4/ Above is equivalent to:
-module.exports = {
-  Activities: Activities,
-  Activity: Activity
 };
