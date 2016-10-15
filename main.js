@@ -1,4 +1,8 @@
-var activities = [
+// 1. We need to enable strict mode.
+"use strict";
+
+// 3. We can also create constants - the variable cannot be re-assigned.
+const activities = [
   {
     id: 3,
     alt: 'Bicycle',
@@ -19,35 +23,35 @@ var activities = [
   }
 ];
 
-var $activities = document.querySelector('.activities');
+const $activities = document.querySelector('.activities');
 
-for (var k in activities) {
-  var activity = activities[k];
+for (let k in activities) {
+  // 2. Using `let` instead of `var` will create block-scoped variable.
+  let activity = activities[k];
 
-  var $activity = document.createElement('div');
+  let $activity = document.createElement('div');
   $activity.className = 'activity';
 
-  var $img = document.createElement('img');
+  let $img = document.createElement('img');
   $img.classList.add('activity__img');
   $img.width = 250;
   $img.height = 250;
   $img.alt = activity.alt;
   $img.src = 'https://xplatform.org/ext/lorempixel/250/250/sports/' + activity.id + '/';
 
-  var $name = document.createElement('h3');
+  let $name = document.createElement('h3');
   $name.classList.add('activity__name');
   $name.textContent = activity.name;
 
-  var $time = document.createElement('p');
+  let $time = document.createElement('p');
   $time.classList.add('activity__description');
   $time.innerHTML = 'Time spent: <strong>' + activity.timeSpent + ' min</strong>';
 
-  var $button = document.createElement('button');
+  let $button = document.createElement('button');
   $button.classList.add('activity__button--paused');
   $button.innerHTML = '&#9654; Start';
 
-  //5/ We're creating new anonymous function, which will handle 'click' event
-  //-- For now, let's just try if it displays the name correctly.
+  //4/ 4. Let's check if handler works this time.
   $button.addEventListener('click', function () {
     alert('Starting tracking: ' + activity.name);
     console.log(activity);
@@ -61,5 +65,5 @@ for (var k in activities) {
   $activities.appendChild($activity);
 }
 
-// Does it make sense to have access to this variable here?
+// 5. We cannot access this variable here - it yields ReferenceError (as expected)
 console.log(activity);
