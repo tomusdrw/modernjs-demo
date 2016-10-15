@@ -1,2 +1,6 @@
 normalize.css
 node_modules/normalize.css/normalize.css
+public/normalize.css.js
+src/styles.css.js
+src/components/Activities/styles.css.js
+src/components/Activity/styles.css.js

@@ -1,5 +1,4 @@
-'use strict';
-
+//-- For local development remove !
 require('./styles.css!');
 
 module.exports = class Activity {

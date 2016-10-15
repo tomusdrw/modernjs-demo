@@ -1,9 +1,6 @@
-'use strict';
-
-// Each component will import it's own styles.
+//-- For local development remove !
 require('./styles.css!');
 
-// This component is also using Activity component, let's just import it
 const Activity = require('../Activity/Activity');
 
 module.exports = class Activities {
