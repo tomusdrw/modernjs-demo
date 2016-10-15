@@ -1,13 +1,11 @@
 'use strict';
 
-//5/ View is also a class, `model` and `$target` are assigned in constructor
 class View {
   constructor(model, $target) {
     this._model = model;
     this._$target = $target;
   }
 
-  //7/ Replace all `View.*` invocations with `this.*`
   render () {
     const activities = this._model.getActivities();
     for (let activity of activities) {
@@ -39,7 +37,6 @@ class View {
     $button.classList.add('activity__button--paused');
     $button.innerHTML = activity.started ? '&#9646;&#9646; Pause' : '&#9654; Start';
 
-    //6/ Thanks to lambas we can safely use `this`.
     $button.addEventListener('click', () => {
       if (!activity.started) {
         activity.started = new Date().getTime();

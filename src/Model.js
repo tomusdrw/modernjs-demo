@@ -1,8 +1,6 @@
 'use strict';
 
-// We can declare a class
 class Model {
-  //2/ Fields has to be assigned in constructor (waiting for ES7...)
   constructor () {
     this._activities = [
       {
@@ -26,7 +24,7 @@ class Model {
       }
     ];
   }
-  //3/ Using `this` to access fields of current instance.
+
   getActivities () {
     return this._activities.slice(0);
   }

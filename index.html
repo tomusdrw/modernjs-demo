@@ -6,12 +6,20 @@
     <title>Activity Tracker</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="src/Model.js" defer></script>
-    <script src="src/View.js" defer></script>
-    <script src="src/index.js" defer></script>
   </head>
   <body>
     <h1>Your activities</h1>
     <div class="activities"></div>
+
+    <!-- 9/ System.js is a tool that will load our modules. -->
+    <script src="/cdn/systemjs/0.19.9/dist/system.js"></script>
+    <script>
+      System.config({
+        defaultJSExtensions: true,
+        transpiler: false
+      });
+      // We are only specifying the entry point
+      System.import('src/index');
+    </script>
   </body>
 </html>

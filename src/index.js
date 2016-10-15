@@ -1,6 +1,9 @@
 'use strict';
 
-//4/ To start the app we create new instance of `View` and `Model`.
+//2/ In index.js we can declare what other files should be imported.
+require('./View');
+require('./Model');
+
 const $activities = document.querySelector('.activities');
 
 const view = new View(new Model(), $activities);
