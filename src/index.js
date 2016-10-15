@@ -1,9 +1,9 @@
 'use strict';
 
-require('../normalize.css!');
+// We can update the path to normalize.css
+require('../node_modules/normalize.css/normalize.css!');
 require('../styles.css!');
 
-// Import Activities component
 const Activities = require('./components/Activities/Activities');
 const Model = require('./Model');
 
