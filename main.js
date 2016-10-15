@@ -1,4 +1,3 @@
-// 20/ We're creating an array of activities (data)
 var activities = [
   {
     id: 3,
@@ -22,7 +21,6 @@ var activities = [
 
 var $activities = document.querySelector('.activities');
 
-// 2/ and we're rendering activties in a loop
 for (var k in activities) {
   var activity = activities[k];
 
@@ -48,11 +46,20 @@ for (var k in activities) {
   $button.classList.add('activity__button--paused');
   $button.innerHTML = '&#9654; Start';
 
+  //5/ We're creating new anonymous function, which will handle 'click' event
+  //-- For now, let's just try if it displays the name correctly.
+  $button.addEventListener('click', function () {
+    alert('Starting tracking: ' + activity.name);
+    console.log(activity);
+  });
+
   $activity.appendChild($img);
   $activity.appendChild($name);
   $activity.appendChild($time);
   $activity.appendChild($button);
 
-  // In each iteration we're appending the activity to the DOM
   $activities.appendChild($activity);
 }
+
+// Does it make sense to have access to this variable here?
+console.log(activity);
