@@ -6,7 +6,6 @@ const Model = {
       id: 3,
       alt: 'Bicycle',
       name: 'Cycling',
-      // This actiity will be started by default
       started: new Date().getTime(),
       timeSpent: 120
     },
@@ -24,7 +23,7 @@ const Model = {
     }
   ],
 
-  getActivities: function () {
+  getActivities () {
     return Model._activities.slice(0);
   }
 };

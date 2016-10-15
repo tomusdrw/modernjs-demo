@@ -4,8 +4,10 @@ const View = {
 
   render (model, $target) {
     const activities = model.getActivities();
-     for (let idx in activities) {
-      let $activity = View._renderActivity(activities[idx]);
+
+    // 5. for-of loop
+    for (let activity of activities) {
+      let $activity = View._renderActivity(activity);
       $target.appendChild($activity);
     }
   },
@@ -15,6 +17,11 @@ const View = {
   },
 
   _renderActivity (activity) {
+    //3/ 4. Destructuring assignment
+    const { alt, name } = activity;
+    // const alt = activity.alt;
+    // const name = activity.name;
+
     let $activity = document.createElement('div');
     $activity.className = 'activity';
 
@@ -23,7 +30,8 @@ const View = {
     $img.width = 250;
     $img.height = 250;
     $img.alt = activity.alt;
-    $img.src = 'https://xplatform.org/ext/lorempixel/250/250/sports/' + activity.id + '/';
+    // 1. Template Strings
+    $img.src = `https://xplatform.org/ext/lorempixel/250/250/sports/${activity.id}/`;
 
     let $name = document.createElement('h3');
     $name.classList.add('activity__name');
@@ -31,28 +39,25 @@ const View = {
 
     let $time = document.createElement('p');
     $time.classList.add('activity__description');
-    $time.innerHTML = 'Time spent: <strong>' + activity.timeSpent.toFixed(1) + ' min</strong>';
+    // 2. We can put any expression inside template strings
+    $time.innerHTML = `Time spent: <strong> ${activity.timeSpent.toFixed(1)} min</strong>`;
 
     let $button = document.createElement('button');
     $button.classList.add('activity__button--paused');
-    $button.innerHTML = activity.started ? '&#9646;&#9646 Pause' : '&#9654; Start';
+    $button.innerHTML = activity.started ? '&#9646;&#9646; Pause' : '&#9654; Start';
 
-    $button.addEventListener('click', function () {
-      //7/ If activity is not yet tracked
+    // 3. Lambdas!
+    $button.addEventListener('click', () => {
       if (!activity.started) {
-        // Record start time
         activity.started = new Date().getTime();
-        // And replace old activity with new one
         View.replace($activity, View._renderActivity(activity));
         return;
       }
 
-      //3/ Otherwise, calculate how much time was spent on this activity and accumulate
       const timeSpent = (new Date().getTime() - activity.started) / 1000 / 60;
       activity.timeSpent += timeSpent;
       activity.started = false;
 
-      // Finally, re-render current activity
       View.replace($activity, View._renderActivity(activity));
     });
 
