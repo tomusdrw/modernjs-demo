@@ -1,8 +1,8 @@
 'use strict';
 
-//2/ In index.js we can declare what other files should be imported.
-require('./View');
-require('./Model');
+//2/ We can get rid of any globals!
+const View = require('./View');
+const Model = require('./Model');
 
 const $activities = document.querySelector('.activities');
 

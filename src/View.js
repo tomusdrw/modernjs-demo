@@ -63,3 +63,5 @@ class View {
     $old.parentNode.replaceChild($new, $old);
   }
 }
+
+module.exports = View;

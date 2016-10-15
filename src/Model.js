@@ -29,3 +29,6 @@ class Model {
     return this._activities.slice(0);
   }
 }
+
+// Declare what stuff should be exposed from the module.
+module.exports = Model;
