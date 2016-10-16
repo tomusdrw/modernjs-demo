@@ -1,0 +1,63 @@
+
+    <!DOCTYPE html>
+    <html xp-run-server-url="https://xpla.org">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>DOM-State</title>
+        <script src="https://xpla.org/static/js/slide_loader.3.0.0.js"></script>
+      </head>
+      <body class="xp-slide">
+        <div class="xp-row with-comments">
+          
+    
+    <div class="xp-column" style="width: 65%">
+      <xp-editor active="src/components/Activities/Activities.js" tree>
+        	<script id="src/components/Activities/Activities.js" highlight="3-8" type="application/octetstream" src="021/src/components/Activities/Activities.js"></script>
+	<script id="src/components/Activity/Activity.js" highlight="6-20,34-41,48-54,59-71" type="application/octetstream" src="021/src/components/Activity/Activity.js"></script>
+	<script id="src/index.js" highlight="1-7" type="application/octetstream" src="021/src/index.js"></script>
+	<script id="console.sh" type="application/octetstream" src="019/console.sh"></script>
+	<script id="package.json" type="application/octetstream" src="019/package.json"></script>
+	<script id="node_modules/normalize.css/normalize.css" type="application/octetstream" src="018/node_modules/normalize.css/normalize.css"></script>
+	<script id="public/index.html" type="application/octetstream" src="019/public/index.html"></script>
+	<script id="public/normalize.css.js" type="application/octetstream" src="019/public/normalize.css.js"></script>
+	<script id="src/Model.js" type="application/octetstream" src="020/src/Model.js"></script>
+	<script id="src/styles.css" type="application/octetstream" src="019/src/styles.css"></script>
+	<script id="src/components/Activities/styles.css" type="application/octetstream" src="017/src/components/Activities/styles.css"></script>
+	<script id="src/components/Activity/styles.css" type="application/octetstream" src="017/src/components/Activity/styles.css"></script>
+      </xp-editor>
+    </div>
+  
+    <div class="xp-resize-column"></div>
+    
+    <div class="xp-column" style="width: 35%">
+      <xp-preview runner="html-babel" file="public/index.html"></xp-preview>
+    </div>
+  
+  
+        </div>
+        <div class="xp-resize-row"></div>
+        <div class="xp-row comments">
+          <xp-annotations>
+            <header><h1>Updating the DOM is hard</h1></header>
+            <details>
+  <h1>Components:</h1>
+  <ul>
+    <li>Isolated JS modules</li>
+    <li>Presentation Logic + Rendering</li>
+    <li>Declares dependencies and imports styles</li>
+    <li>Composable</li>
+  </ul>
+  <p>
+    The difficult part: "How keep DOM and state in sync? (Efficiently and without huge amounts of code)"
+  </p>
+  <p>
+    Let's see how a full application looks like.
+  </p>
+</details>
+
+          </xp-annotations>
+        </div>
+      </body>
+    </html>
+  
