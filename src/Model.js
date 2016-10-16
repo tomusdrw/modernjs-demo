@@ -1,4 +1,4 @@
-class Model {
+export default class Model {
   constructor () {
     this._activities = [
       {
@@ -27,5 +27,3 @@ class Model {
     return this._activities.slice(0);
   }
 }
-
-module.exports = Model;

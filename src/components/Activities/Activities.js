@@ -1,9 +1,10 @@
 //-- For local development remove !
-require('./styles.css!');
+import './styles.css!';
 
-const Activity = require('../Activity/Activity');
+import Activity from '../Activity/Activity';
 
-module.exports = class Activities {
+// Exporting is "simplified" (no need for module.exports)
+export default class Activities {
   constructor (activities) {
     this._activities = activities;
   }
