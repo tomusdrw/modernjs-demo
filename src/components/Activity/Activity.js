@@ -5,17 +5,16 @@ import React from 'react';
 
 export default class Activity extends React.Component {
 
-  totalTime () {
+  totalTime (now) {
     const { activity } = this.props;
     if (activity.started) {
-      return activity.timeSpent + (new Date().getTime() - activity.started) / 1000 / 60;
+      return activity.timeSpent + (now - activity.started) / 1000 / 60;
     }
     return activity.timeSpent;
   }
 
-  //23/ Rendering function looks almost identical to HTML we had at the beginning.
   render () {
-    const { activity } = this.props;
+    const { activity, now } = this.props;
 
     return (
       <div className='activity'>
@@ -29,26 +28,13 @@ export default class Activity extends React.Component {
           {activity.name}
         </h3>
         <p className='activity__description'>
-          Time spent: <strong>{this.totalTime().toFixed(1)} min</strong>
+          Time spent: <strong>{this.totalTime(now).toFixed(1)} min</strong>
         </p>
-        <button className='activity__button--paused' onClick={this.handleClick}>
+        <button className='activity__button--paused' onClick={this.props.onChange}>
           {activity.started ? '▮▮ Pause' : '▶ Start'}
         </button>
       </div>
     );
   }
 
-  //12/ Below code is not recommended! We should handle the state explicitly in a single place.
-  handleClick = () => {
-    const { activity } = this.props;
-    if (!activity.started) {
-      activity.started = new Date().getTime();
-      this.forceUpdate();
-      return;
-    }
-
-    activity.timeSpent = this.totalTime();
-    activity.started = false;
-    this.forceUpdate();
-  };
 };
