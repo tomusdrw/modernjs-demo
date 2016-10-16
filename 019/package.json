@@ -1,0 +1,22 @@
+{
+  "name": "activity-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "__": "4/ Scripts are required by react-scripts tool",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "test": "react-scripts test"
+  },
+  "keywords": [],
+  "author": "tomusdrw",
+  "license": "MIT",
+  "dependencies": {
+    "normalize.css": "^4.2.0"
+  },
+  "devDependencies": {
+    "react-scripts": "^0.6.1"
+  }
+}

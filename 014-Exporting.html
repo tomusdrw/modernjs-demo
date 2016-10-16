@@ -1,0 +1,46 @@
+
+    <!DOCTYPE html>
+    <html xp-run-server-url="https://xpla.org">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Exporting</title>
+        <script src="https://xpla.org/static/js/slide_loader.3.0.0.js"></script>
+      </head>
+      <body class="xp-slide">
+        <div class="xp-row with-comments">
+          
+    
+    <div class="xp-column">
+      <xp-editor active="src/Model.js" >
+        	<script id="src/Model.js" highlight="29-34" type="application/octetstream" src="014/src/Model.js"></script>
+	<script id="src/View.js" highlight="63-67" type="application/octetstream" src="014/src/View.js"></script>
+	<script id="src/index.js" highlight="1-8" type="application/octetstream" src="014/src/index.js"></script>
+	<script id="index.html" type="application/octetstream" src="013/index.html"></script>
+	<script id="normalize.css" type="application/octetstream" src="001/normalize.css"></script>
+	<script id="styles.css" type="application/octetstream" src="001/styles.css"></script>
+      </xp-editor>
+    </div>
+  
+    <div class="xp-resize-column"></div>
+    
+    <div class="xp-column">
+      <xp-preview runner="html"></xp-preview>
+    </div>
+  
+  
+        </div>
+        <div class="xp-resize-row"></div>
+        <div class="xp-row comments">
+          <xp-annotations>
+            <header><h1>Exporting from modules</h1></header>
+            <details>
+  <p>With <code>CommonJS</code> modules each module imports it's own dependencies.</p>
+  <p>Every module can expose (by exporting) only public API, and keep the rest private.</p>
+</details>
+
+          </xp-annotations>
+        </div>
+      </body>
+    </html>
+  
