@@ -3,7 +3,6 @@ import './styles.css!';
 
 import Activity from '../Activity/Activity';
 
-// Exporting is "simplified" (no need for module.exports)
 export default class Activities {
   constructor (activities) {
     this._activities = activities;

@@ -6,6 +6,15 @@ export default class Activity {
     this._activity = activity;
   }
 
+  //7/ Calculate total time spent on activity.
+  totalTime () {
+    let activity = this._activity;
+    if (activity.started) {
+      return activity.timeSpent + (new Date().getTime() - activity.started) / 1000 / 60;
+    }
+    return activity.timeSpent;
+  }
+
   render () {
     let activity = this._activity;
 
@@ -25,7 +34,8 @@ export default class Activity {
 
     let $time = document.createElement('p');
     $time.classList.add('activity__description');
-    $time.innerHTML = `Time spent: <strong> ${activity.timeSpent.toFixed(1)} min</strong>`;
+    // Display total time
+    $time.innerHTML = `Time spent: <strong> ${this.totalTime().toFixed(1)} min</strong>`;
 
     let $button = document.createElement('button');
     $button.classList.add('activity__button--paused');
@@ -38,8 +48,7 @@ export default class Activity {
         return;
       }
 
-      const timeSpent = (new Date().getTime() - activity.started) / 1000 / 60;
-      activity.timeSpent += timeSpent;
+      activity.timeSpent = this.totalTime();
       activity.started = false;
 
       this.rerender($activity);
@@ -49,6 +58,13 @@ export default class Activity {
     $activity.appendChild($name);
     $activity.appendChild($time);
     $activity.appendChild($button);
+
+    //5/ Automatically re-render when active
+    if (activity.started) {
+      setTimeout(() => {
+        this.rerender($activity);
+      }, 1000);
+    }
 
     return $activity;
   }
