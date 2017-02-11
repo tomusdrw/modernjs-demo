@@ -3,6 +3,10 @@
   "name": "ModernJS: From VanillaJS to React",
   "date": "19 Oct 2016",
   "link": "bit.ly/mjs-short",
+  "author": {
+    "name": "Tomasz Drwięga",
+    "link": "@tomusdrw"
+  },
   "branches": [
     {
       "name": "master",
