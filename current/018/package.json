@@ -1,0 +1,19 @@
+{
+  "name": "activity-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "tomusdrw",
+  "license": "MIT",
+  "__1": "3/ Dependencies required by project",
+  "dependencies": {
+    "normalize.css": "^4.2.0"
+  },
+  "__2": "2/ Development dependencies (required to develop the project)",
+  "devDependencies": {
+  }
+}

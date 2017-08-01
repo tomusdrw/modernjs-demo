@@ -1,0 +1,45 @@
+
+    <!DOCTYPE html>
+    <html xp-run-server-url="https://xpla.org">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Object</title>
+        <script src="https://xpla.org/static/js/slide_loader.3.0.0.js"></script>
+      </head>
+      <body class="xp-slide">
+        <div class="xp-row with-comments">
+          
+    
+    <div class="xp-column">
+      <xp-editor active="main.js" >
+        	<script id="main.js" highlight="1-38" type="application/octetstream" src="004/main.js"></script>
+	<script id="index.html" type="application/octetstream" src="003/index.html"></script>
+	<script id="normalize.css" type="application/octetstream" src="001/normalize.css"></script>
+	<script id="styles.css" type="application/octetstream" src="001/styles.css"></script>
+      </xp-editor>
+    </div>
+  
+    <div class="xp-resize-column"></div>
+    
+    <div class="xp-column">
+      <xp-preview runner="html"></xp-preview>
+    </div>
+  
+  
+        </div>
+        <div class="xp-resize-row"></div>
+        <div class="xp-row comments">
+          <xp-annotations>
+            <header><h1>Separating Model and View</h1></header>
+            <details>
+  <p>Using DOM API is a bit tedious, it might be a good idea to build some abstraction on top (we'll see it later).</p>
+  <p>Our code also mixes <strong>data</strong> and <strong>presentation</strong>. It's bad from maintainability PoV.</p>
+  <p>Let's try to separate data into JS object.</p>
+</details>
+
+          </xp-annotations>
+        </div>
+      </body>
+    </html>
+  

@@ -1,0 +1,48 @@
+
+    <!DOCTYPE html>
+    <html xp-run-server-url="https://xpla.org">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Splitting View</title>
+        <script src="https://xpla.org/static/js/slide_loader.3.0.0.js"></script>
+      </head>
+      <body class="xp-slide">
+        <div class="xp-row with-comments">
+          
+    
+    <div class="xp-column">
+      <xp-editor active="index.html" >
+        	<script id="index.html" highlight="4-18" type="application/octetstream" src="016/index.html"></script>
+	<script id="src/View.css" highlight="1-35" type="application/octetstream" src="016/src/View.css"></script>
+	<script id="src/View.js" highlight="1-36,56-62,64-70,75-91" type="application/octetstream" src="016/src/View.js"></script>
+	<script id="src/index.js" highlight="1-13" type="application/octetstream" src="016/src/index.js"></script>
+	<script id="styles.css" highlight="6-8" type="application/octetstream" src="016/styles.css"></script>
+	<script id="normalize.css" type="application/octetstream" src="001/normalize.css"></script>
+	<script id="src/Model.js" type="application/octetstream" src="015/src/Model.js"></script>
+      </xp-editor>
+    </div>
+  
+    <div class="xp-resize-column"></div>
+    
+    <div class="xp-column">
+      <xp-preview runner="html"></xp-preview>
+    </div>
+  
+  
+        </div>
+        <div class="xp-resize-row"></div>
+        <div class="xp-row comments">
+          <xp-annotations>
+            <header><h1>Splitting view into smaller classes</h1></header>
+            <details>
+  <p>Actually we don't need to keep all CSS files in a single file.</p>
+  <p>It would be much better to split them into smaller files and keep close to Views using those styles.</p>
+  <p>We can also split <code>View</code> into more fine-grained classes: <code>Activities</code> and <code>Activity</code>.
+</details>
+
+          </xp-annotations>
+        </div>
+      </body>
+    </html>
+  

@@ -1,0 +1,49 @@
+
+    <!DOCTYPE html>
+    <html xp-run-server-url="https://xpla.org">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Re-render</title>
+        <script src="https://xpla.org/static/js/slide_loader.3.0.0.js"></script>
+      </head>
+      <body class="xp-slide">
+        <div class="xp-row with-comments">
+          
+    
+    <div class="xp-column">
+      <xp-editor active="index.html" >
+        	<script id="index.html" highlight="6-11" type="application/octetstream" src="010/index.html"></script>
+	<script id="src/Model.js" highlight="1-13" type="application/octetstream" src="010/src/Model.js"></script>
+	<script id="src/View.js" highlight="1-19,31-59" type="application/octetstream" src="010/src/View.js"></script>
+	<script id="src/index.js" highlight="1-4" type="application/octetstream" src="010/src/index.js"></script>
+	<script id="normalize.css" type="application/octetstream" src="001/normalize.css"></script>
+	<script id="styles.css" type="application/octetstream" src="001/styles.css"></script>
+      </xp-editor>
+    </div>
+  
+    <div class="xp-resize-column"></div>
+    
+    <div class="xp-column">
+      <xp-preview runner="html"></xp-preview>
+    </div>
+  
+  
+        </div>
+        <div class="xp-resize-row"></div>
+        <div class="xp-row comments">
+          <xp-annotations>
+            <header><h1>Re-rendering of activity</h1></header>
+            <details>
+  <p>
+    Let's implement missing part of our app.
+  </p>
+  <p>We need to handle <code>Start</code> button properly.</p>
+  <p>This will lead us to the problem: "How to update the DOM efficiently?"</p>
+</details>
+
+          </xp-annotations>
+        </div>
+      </body>
+    </html>
+  

@@ -1,0 +1,12 @@
+{
+  "xpla.version": 1,
+  "name": "ModernJS: From VanillaJS to React",
+  "date": "19 Oct 2016",
+  "link": "bit.ly/mjs-short",
+  "branches": [
+    {
+      "name": "master",
+      "title": "Quick overview of what has changed over few years"
+    }
+  ]
+}

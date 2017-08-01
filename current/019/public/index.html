@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Activity Tracker</title>
+  </head>
+  <body>
+    <h1>Your activities</h1>
+
+    <script src="/cdn/systemjs/0.19.9/dist/system.js"></script>
+    <script>
+      System.config({
+        defaultJSExtensions: true,
+        transpiler: false,
+        map: {
+          'css': '/cdn/systemjs/plugin-css/css-0.1.20.js'
+        }
+      });
+      System.import('../src/index');
+    </script>
+  </body>
+</html>
