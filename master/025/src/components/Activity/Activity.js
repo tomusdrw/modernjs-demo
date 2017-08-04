@@ -24,7 +24,7 @@ export default class Activity extends React.Component {
           width={250}
           height={250}
           alt={activity.alt}
-          src={`https://xplatform.org/ext/lorempixel/250/250/sports/${activity.id}/`} />
+          src={`https://xpla.org/ext/lorempixel/250/250/sports/${activity.id}/`} />
         <h3 className='activity__name'>
           {activity.name}
         </h3>

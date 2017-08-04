@@ -44,7 +44,7 @@ const View = {
       $img.width = 250;
       $img.height = 250;
       $img.alt = activity.alt;
-      $img.src = 'https://xplatform.org/ext/lorempixel/250/250/sports/' + activity.id + '/';
+      $img.src = 'https://xpla.org/ext/lorempixel/250/250/sports/' + activity.id + '/';
 
       let $name = document.createElement('h3');
       $name.classList.add('activity__name');

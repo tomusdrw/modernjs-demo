@@ -9,7 +9,7 @@ $activities.innerHTML += '' +
  '         width="250"' +
  '         height="250"' +
  '         alt="Swimmer"' +
- '         src="https://xplatform.org/ext/lorempixel/250/250/sports/7/">' +
+ '         src="https://xpla.org/ext/lorempixel/250/250/sports/7/">' +
  '       <h3 class="activity__name">' +
  '         Swimming' +
  '       </h3>' +

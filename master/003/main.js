@@ -8,7 +8,7 @@ $img.classList.add('activity__img');
 $img.width = 250;
 $img.height = 250;
 $img.alt = 'Swimmer';
-$img.src = 'https://xplatform.org/ext/lorempixel/250/250/sports/7/';
+$img.src = 'https://xpla.org/ext/lorempixel/250/250/sports/7/';
 
 // 3/ A title
 var $title = document.createElement('h3');
